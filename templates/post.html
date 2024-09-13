@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            height: 200px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Twitter Post</title>
+</head>
+
+<body>
+    <form id="tweet-form">
+        <label for="accessToken">Access Token:</label>
+        <input type="text" id="accessToken" name="accessToken" placeholder="Access Token" required />
+
+        <label for="accessTokenSecret">Token Secret:</label>
+        <input type="text" id="accessTokenSecret" name="accessTokenSecret" placeholder="Token Secret" required />
+
+        <label for="message">Twitter Post:</label>
+        <textarea id="message" name="message" rows="2" placeholder="Post" required></textarea>
+
+        <button type="submit">Post Now</button>
+    </form>
+
+    <script>
+        document.getElementById('tweet-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const accessToken = document.getElementById('accessToken').value;
+            const accessTokenSecret = document.getElementById('accessTokenSecret').value;
+            const message = document.getElementById('message').value;
+
+            const payload = {
+                accessToken,
+                accessTokenSecret,
+                message
+            };
+
+            try {
+                const response = await fetch('/tweet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail);
+                }
+
+                const data = await response.json();
+                alert('Tweet posted successfully: ' + JSON.stringify(data));
+            } catch (error) {
+                alert('Failed to post tweet: ' + error.message);
+            }
+        });
+    </script>
+</body>
+
+</html>
