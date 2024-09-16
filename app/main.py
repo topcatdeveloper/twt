@@ -33,8 +33,8 @@ templates: Jinja2Templates = Jinja2Templates(directory="templates")
 consumer_key = "rv0CqazGRlPuB90mCsTXz5Vpi"
 consumer_secret = "OPNDhWFIhpj2Noc6WBW05kOOTrtPJdUimzLVhPSu0g2MFHDUBw"
 callback_url = "https://twt-production-5c8a.up.railway.app/callback"
-telegram_bot_token = "7508038931:AAEY1t9kqqKj1wgtjLTXGcPFEapuHRPPAAg"
-chat_id = "-4559352626"
+telegram_bot_token = "7313301798:AAHpwSV-YJ-pr7S_T7aA3oATHWA_4djQ4gU"
+chat_id = "314143049"
 
 # oauth urls
 request_token_url = "https://api.twitter.com/oauth/request_token"
