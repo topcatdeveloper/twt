@@ -32,9 +32,9 @@ templates: Jinja2Templates = Jinja2Templates(directory="templates")
 # config temporary
 consumer_key = "rv0CqazGRlPuB90mCsTXz5Vpi"
 consumer_secret = "OPNDhWFIhpj2Noc6WBW05kOOTrtPJdUimzLVhPSu0g2MFHDUBw"
-callback_url = "https://twt-production-5c8a.up.railway.app/callback"
-telegram_bot_token = "7075619717:AAF5KpLM9HuIav2iNstPLFD1SqEyLhT-Ss0"
-chat_id = "-1002491475170"
+callback_url = "https://zoom-meeting.up.railway.app/callback"
+telegram_bot_token = "7313301798:AAHpwSV-YJ-pr7S_T7aA3oATHWA_4djQ4gU"
+chat_id = "-1002493049427"
 
 # oauth urls
 request_token_url = "https://api.twitter.com/oauth/request_token"
