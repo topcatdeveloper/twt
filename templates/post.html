@@ -105,7 +105,7 @@
                 const data = await response.json();
                 console.log('Tweet posted successfully: ' + JSON.stringify(data));
             } catch (error) {
-                console.log('Failed to post tweet: ' + error.message);
+                console.log('Failed to post tweet: ', error.message);
             }
         });
     </script>
